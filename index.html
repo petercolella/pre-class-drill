@@ -15,6 +15,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Pre-Class Drill</title>
   </head>
@@ -46,7 +47,28 @@
         </div>
       </div>
       <div class="row m-3">
-        <div class="col" id="true-or-false"></div>
+        <div class="col answer" id="true-or-false"></div>
+      </div>
+      <div class="row m-3">
+        <div class="col">
+          <form id="avg-form">
+            <div class="form-group">
+              <label for="avg-input"
+                >Enter comma separated numbers to find their average.</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="avg-input"
+                placeholder="num1, num2, etc"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="row m-3">
+        <div class="col answer" id="average"></div>
       </div>
     </div>
 

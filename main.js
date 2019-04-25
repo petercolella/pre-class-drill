@@ -35,3 +35,25 @@ const checkPalindrome = function(word) {
   }
   return true;
 };
+
+$('#avg-form').on('submit', function(e) {
+  e.preventDefault();
+  const arr = e.target[0].value.split(',').map(num => parseFloat(num));
+  const avgDiv = `
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        ${findAverage(arr)}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    `;
+  $('#average').html(avgDiv);
+});
+
+const findAverage = function(arr) {
+  let sum = 0;
+  for (let num of arr) {
+    sum += num;
+  }
+  return sum / arr.length;
+};
