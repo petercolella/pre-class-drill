@@ -18,7 +18,10 @@ const palFalse = `
 
 $('#pal-form').on('submit', function(e) {
   e.preventDefault();
-  const word = e.target[0].value;
+  // const word = e.target[0].value;
+  const word = $('#palindrome')
+    .val()
+    .trim();
   if (checkPalindrome(word)) {
     $('#true-or-false').html(palTrue);
   } else {
@@ -38,7 +41,12 @@ const checkPalindrome = function(word) {
 
 $('#avg-form').on('submit', function(e) {
   e.preventDefault();
-  const arr = e.target[0].value.split(',').map(num => parseFloat(num));
+  // const arr = e.target[0].value.split(',').map(num => parseFloat(num));
+  const arr = $('#avg-input')
+    .val()
+    .trim()
+    .split(',')
+    .map(num => parseFloat(num));
   const avgDiv = `
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
         ${findAverage(arr)}
