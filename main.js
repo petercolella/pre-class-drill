@@ -77,8 +77,17 @@ $('#pangram-form').on('submit', function(e) {
   } else {
     $('#pangram').html(alertFalse);
   }
+
+  //   $('#pangram-input').val('');
 });
 
-const isPangram = function(sentence) {
-  console.log(sentence);
+const isPangram = function(input) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const str = input.toLowerCase();
+  for (let i = 0; i < alphabet.length; i++) {
+    if (!str.includes(alphabet[i])) {
+      return false;
+    }
+  }
+  return true;
 };
