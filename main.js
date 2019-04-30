@@ -1,4 +1,4 @@
-const palTrue = `
+const alertTrue = `
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         True!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -7,7 +7,7 @@ const palTrue = `
     </div>
 `;
 
-const palFalse = `
+const alertFalse = `
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         False!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,9 +23,9 @@ $('#pal-form').on('submit', function(e) {
     .val()
     .trim();
   if (checkPalindrome(word)) {
-    $('#true-or-false').html(palTrue);
+    $('#true-or-false').html(alertTrue);
   } else {
-    $('#true-or-false').html(palFalse);
+    $('#true-or-false').html(alertFalse);
   }
 });
 
@@ -64,4 +64,21 @@ const findAverage = function(arr) {
     sum += num;
   }
   return sum / arr.length;
+};
+
+$('#pangram-form').on('submit', function(e) {
+  e.preventDefault();
+  const sentence = $('#pangram-input')
+    .val()
+    .trim();
+
+  if (isPangram(sentence)) {
+    $('#pangram').html(alertTrue);
+  } else {
+    $('#pangram').html(alertFalse);
+  }
+});
+
+const isPangram = function(sentence) {
+  console.log(sentence);
 };
