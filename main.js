@@ -68,24 +68,22 @@ const findAverage = function(arr) {
 
 $('#pangram-form').on('submit', function(e) {
   e.preventDefault();
-  const sentence = $('#pangram-input')
+  const str = $('#pangram-input')
     .val()
     .trim();
 
-  if (isPangram(sentence)) {
+  if (isPangram(str)) {
     $('#pangram').html(alertTrue);
   } else {
     $('#pangram').html(alertFalse);
   }
-
-  //   $('#pangram-input').val('');
 });
 
-const isPangram = function(input) {
+const isPangram = function(str) {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  const str = input.toLowerCase();
-  for (let i = 0; i < alphabet.length; i++) {
-    if (!str.includes(alphabet[i])) {
+  str = str.toLowerCase();
+  for (let letter of alphabet) {
+    if (!str.includes(letter)) {
       return false;
     }
   }
