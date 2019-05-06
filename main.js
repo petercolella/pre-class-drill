@@ -96,7 +96,7 @@ $('#fibonacci-form').on('submit', function(e) {
   const num = parseInt($('#fibonacci-input').val());
   const fibonacciDiv = `
       <div class="alert alert-primary alert-dismissible fade show" role="alert">
-          ${fibonacci(num)}
+          [${fibonacci(num).join(', ')}]
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
