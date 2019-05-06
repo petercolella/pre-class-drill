@@ -90,22 +90,32 @@ const isPangram = function(str) {
   return true;
 };
 
-const jcp = ['Jacob', 'Cody', 'Peter'];
-const groups = ['pink', 'orange', 'red', 'purple', 'blue', 'green'];
+$('#fibonacci-form').on('submit', function(e) {
+  e.preventDefault();
+  // const arr = e.target[0].value.split(',').map(num => parseFloat(num));
+  const num = parseInt($('#fibonacci-input').val());
+  const fibonacciDiv = `
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          [${fibonacci(num).join(', ')}]
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      `;
+  $('#fibonacci').html(fibonacciDiv);
+});
 
-function randomGroupPicker(teachArr, groupArr) {
-  const tempGroupArr = [...groupArr];
-  const newObj = teachArr.reduce((obj, key) => ({ ...obj, [key]: [] }), {});
-
-  for (let i = 0; i < groupArr.length; i += teachArr.length) {
-    for (let key of teachArr) {
-      if (tempGroupArr.length > 0) {
-        let index = Math.floor(Math.random() * tempGroupArr.length);
-        newObj[key].push(tempGroupArr.splice(index, 1).pop());
-      }
-    }
+const fibonacci = function(n) {
+  const t0 = performance.now().toFixed(3);
+  console.log(`t of ${n} outside: ${t0}`);
+  if (n <= 2) {
+    return [1, 1].slice(0, n);
+  } else {
+    const arr = fibonacci(n - 1);
+    const t1 = performance.now().toFixed(3);
+    console.log('arr: ', arr);
+    console.log(`t of ${n} inside: ${t1}`);
+    arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
+    return arr;
   }
-  return newObj;
-}
-
-console.log(randomGroupPicker(jcp, groups));
+};
