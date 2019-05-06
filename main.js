@@ -90,22 +90,16 @@ const isPangram = function(str) {
   return true;
 };
 
-const jcp = ['Jacob', 'Cody', 'Peter'];
-const groups = ['pink', 'orange', 'red', 'purple', 'blue', 'green'];
-
-function randomGroupPicker(teachArr, groupArr) {
-  const tempGroupArr = [...groupArr];
-  const newObj = teachArr.reduce((obj, key) => ({ ...obj, [key]: [] }), {});
-
-  for (let i = 0; i < groupArr.length; i += teachArr.length) {
-    for (let key of teachArr) {
-      if (tempGroupArr.length > 0) {
-        let index = Math.floor(Math.random() * tempGroupArr.length);
-        newObj[key].push(tempGroupArr.splice(index, 1).pop());
-      }
-    }
+const fibArr = [];
+const fibonacci = function(n) {
+  if (n <= 2) {
+    return [1, 1].slice(0, n);
+  } else {
+    const arr = fibonacci(n - 1);
+    console.log('n: ', n, 'arr: ', arr, 'time: ', Date.now());
+    arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
+    return arr;
   }
-  return newObj;
-}
+};
 
-console.log(randomGroupPicker(jcp, groups));
+console.log(fibonacci(10));
