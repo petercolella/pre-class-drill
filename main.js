@@ -90,13 +90,16 @@ const isPangram = function(str) {
   return true;
 };
 
-const fibArr = [];
 const fibonacci = function(n) {
+  const t0 = performance.now().toFixed(3);
+  console.log(`t${n}.0: ${t0}`);
   if (n <= 2) {
     return [1, 1].slice(0, n);
   } else {
     const arr = fibonacci(n - 1);
-    console.log('n: ', n, 'arr: ', arr, 'time: ', Date.now());
+    const t1 = performance.now().toFixed(3);
+    console.log('arr: ', arr);
+    console.log(`t${n}.1: ${t1}`);
     arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
     return arr;
   }
