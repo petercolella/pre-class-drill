@@ -105,16 +105,21 @@ $('#fibonacci-form').on('submit', function(e) {
   $('#fibonacci').html(fibonacciDiv);
 });
 
+let count = 0;
+
 const fibonacci = function(n) {
   const t0 = performance.now().toFixed(3);
-  console.log(`time of ${n} outside: ${t0}`);
+  count++;
+  console.log(`time of ${n} outside: ${t0}\ncount: ${count}\n\n`);
   if (n <= 2) {
     const t3 = performance.now().toFixed(3);
-    console.log(`t of ${n} <= 2: ${t3}`);
+    count++;
+    console.log(`t of ${n} <= 2: ${t3}\ncount: ${count}\n\n`);
     return [1, 1].slice(0, n);
   } else {
     const t1 = performance.now().toFixed(3);
-    console.log(`TIME of ${n} INSIDE: ${t1}`);
+    count++;
+    console.log(`TIME of ${n} INSIDE: ${t1}\ncount: ${count}\n\n`);
     const arr = fibonacci(n - 1);
     console.log(
       `\nfibonacci(n - 1) of ${n}: `,
