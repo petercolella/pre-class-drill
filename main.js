@@ -107,15 +107,22 @@ $('#fibonacci-form').on('submit', function(e) {
 
 const fibonacci = function(n) {
   const t0 = performance.now().toFixed(3);
-  console.log(`t of ${n} outside: ${t0}`);
+  console.log(`time of ${n} outside: ${t0}`);
   if (n <= 2) {
+    const t3 = performance.now().toFixed(3);
+    console.log(`t of ${n} <= 2: ${t3}`);
     return [1, 1].slice(0, n);
   } else {
-    const arr = fibonacci(n - 1);
     const t1 = performance.now().toFixed(3);
-    console.log('arr: ', arr);
-    console.log(`t of ${n} inside: ${t1}`);
+    console.log(`TIME of ${n} INSIDE: ${t1}`);
+    const arr = fibonacci(n - 1);
+    console.log(
+      `\nfibonacci(n - 1) of ${n}: `,
+      fibonacci(n - 1),
+      `\n********(${n})********\n\n`
+    );
     arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
+    console.log(`\narr.push of ${n}: `, arr, `\n--------(${n})--------\n\n`);
     return arr;
   }
 };
