@@ -1,4 +1,4 @@
-const jcp = ['Jacob', 'Cody', 'Peter'];
+const teachers = ['Jacob', 'Steffen', 'Peter'];
 const groups = ['pink', 'orange', 'red', 'purple', 'blue', 'green'];
 
 function randomGroupPicker(teachArr, groupArr) {
@@ -18,4 +18,4 @@ function randomGroupPicker(teachArr, groupArr) {
   return newObj;
 }
 
-console.log(randomGroupPicker(jcp, groups));
+console.log(randomGroupPicker(teachers, groups));
