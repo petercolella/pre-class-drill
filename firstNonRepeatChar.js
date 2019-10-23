@@ -13,7 +13,7 @@ console.log(
   firstLetter('the quick brown fox jumps over the calm kitten quietly')
 );
 
-function firstNonRepeatChar(str) {
+function firstNonRepeatCharMap(str) {
   var charCounts = new Map();
   for (var i = 0; i < str.length; i++) {
     var char = str[i];
@@ -29,6 +29,29 @@ function firstNonRepeatChar(str) {
     // console.log(j);
     if (j[1] === 1) {
       return j[0];
+    }
+  }
+}
+
+console.log(
+  firstNonRepeatCharMap(
+    'the quick brown fox jumps over the calm kitten quietly'
+  )
+);
+
+function firstNonRepeatChar(str) {
+  const charCount = {};
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  for (let j in charCount) {
+    if (charCount[j] == 1) {
+      return j;
     }
   }
 }
